@@ -7,7 +7,7 @@
     "build:client": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
-    "build:win": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json && cross-env WEBPACK_TARGET=node NODE_ENV=production node ./server.js",
+    "build": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json && cross-env WEBPACK_TARGET=node NODE_ENV=production node ./server.js",
     "start": "cross-env NODE_ENV=production pm2 start server.js -n 'ssr-project'"
   },
   "dependencies": {
