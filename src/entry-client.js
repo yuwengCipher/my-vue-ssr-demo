@@ -1,6 +1,6 @@
 import { createApp } from './main'
 
-const { app, router } = createApp();
+const { app, router, store } = createApp();
 
 router.onReady(() => {
     router.beforeResolve((to, from, next) => {

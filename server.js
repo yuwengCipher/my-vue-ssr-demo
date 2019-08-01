@@ -14,10 +14,9 @@ const { createBundleRenderer } = require("vue-server-renderer");
 const bundle = require("./dist/vue-ssr-server-bundle.json");
 const clientManifest = require("./dist/vue-ssr-client-manifest.json");
 
-console.log(resolve("./public/index.html"));
 const renderer = createBundleRenderer(bundle, {
     runInNewContext: false,
-    // template: resolve("./public/index.html"),
+    template: fs.readFileSync(resolve("./src/index.template.html"), "utf-8"),
     clientManifest: clientManifest
 });
 
