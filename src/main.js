@@ -1,12 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+import { createRouter } from './router'
+import { createStore } from './store'
+import { sync } from 'vuex-router-sync'
 
-Vue.config.productionTip = false
+export function createApp () {
+    const router = createRouter();
+    const store = createStore();
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    // 同步路由状态到store
+    sync(store, router);
+
+    const app = new Vue({
+        router,
+        store,
+        render: h => h(App)
+    })
+    return { app, router, store }
+}
